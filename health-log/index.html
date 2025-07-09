@@ -174,17 +174,7 @@
   <button onclick="exportAndCopyNight()">📤 書き出してコピー</button>
   <pre id="exportNightText" style="white-space: pre-wrap; margin-top: 10px;"></pre>
 </div>
-
-
-<!-- 🔐 パスワード制限のコード（先に読み込む） -->
-<script>
-  const pass = prompt("パスワードを入力してください");
-  if (pass !== "yomogiabc") {
-    document.body.innerHTML = "<h1>アクセスできません</h1>";
-    throw new Error("認証失敗：アクセス制限中");
-  }
-</script>
-
+    
 <!-- 📦 アプリのJavaScript -->
 <script src="management.js" defer></script>
 </body>
