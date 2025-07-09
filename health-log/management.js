@@ -1,3 +1,8 @@
+const pass = prompt("パスワードを入力してください");
+if (pass !== "yomogiabc") {
+  document.body.innerHTML = "<h1>アクセスできません</h1>";
+}
+
 function showSection(id) {
     document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
     document.getElementById(id).classList.add('active');
