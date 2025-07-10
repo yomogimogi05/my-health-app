@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>体調管理アプリ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#f0f8ff">
+
+</head>
+
+<body>
+
+    <h1>体調記録アプリ</h1>
+
+    <p>🗓️ 日付：<input type="date" id="datePicker"></p>
+
+    <div class="button-container">
+    <button onclick="showSection('morning')">☀️ 朝の記録</button>
+    <button onclick="showSection('night')">🌙 夜の記録</button>
+    </div>
+
+    <!-- 朝 -->
+    <div id="morning" class="section">
+        <h2>朝の記録</h2>
+
+        <div class="selector">
+            <label for="wakeTime">🕰️ 起きた時間：</label>
+            <select id="wakeTime">
+                <option value="">-- 選んでね --</option>
+                <option value="06:00">6:00</option>
+                <option value="06:30">6:30</option>
+                <option value="07:00">7:00</option>
+                <option value="07:30">7:30</option>
+                <option value="08:00">8:00</option>
+                <option value="08:30">8:30</option>
+                <option value="09:00">9:00</option>
+                <option value="09:30">9:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+            </select>
+        </div>
+
+        <div class="selector">
+            <label for="medTime">💊 薬を飲んだ時間：</label>
+            <select id="medTime">
+                <option value="">-- 選んでね --</option>
+                <option value="06:00">6:00</option>
+                <option value="06:30">6:30</option>
+                <option value="07:00">7:00</option>
+                <option value="07:30">7:30</option>
+                <option value="08:00">8:00</option>
+                <option value="08:30">8:30</option>
+                <option value="09:00">9:00</option>
+                <option value="09:30">9:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="飲んでない">飲んでない</option>
+            </select>
+        </div>
+
+
+        <div class="selector">
+            <button onclick="toggleChoices('morningWakeup')">起きた時の感覚を選ぶ</button>
+            <div id="morningWakeup" class="choices">
+                <button onclick="selectValue('morningWakeup', 'すっきり')">すっきり</button>
+                <button onclick="selectValue('morningWakeup', 'まあまあ')">まあまあ</button>
+                <button onclick="selectValue('morningWakeup', '悪い')">悪い</button>
+            </div>
+        </div>
+
+
+        <div class="selector">
+            <button onclick="toggleChoices('morningCondition')">体調を選ぶ</button>
+            <div id="morningCondition" class="choices">
+                <button onclick="selectValue('morningCondition', 1)">1</button>
+                <button onclick="selectValue('morningCondition', 2)">2</button>
+                <button onclick="selectValue('morningCondition', 3)">3</button>
+                <button onclick="selectValue('morningCondition', 4)">4</button>
+                <button onclick="selectValue('morningCondition', 5)">5</button>
+            </div>
+        </div>
+
+        <div class="selector">
+            <button onclick="toggleChoices('morningMental')">メンタルを選ぶ</button>
+            <div id="morningMental" class="choices">
+                <button onclick="selectValue('morningMental', 1)">1</button>
+                <button onclick="selectValue('morningMental', 2)">2</button>
+                <button onclick="selectValue('morningMental', 3)">3</button>
+                <button onclick="selectValue('morningMental', 4)">4</button>
+                <button onclick="selectValue('morningMental', 5)">5</button>
+            </div>
+        </div>
+
+        <div class="selector">
+            <button onclick="toggleChoices('morningFatigue')">疲れやすさを選ぶ</button>
+            <div id="morningFatigue" class="choices">
+                <button onclick="selectValue('morningFatigue', '◎')">◎</button>
+                <button onclick="selectValue('morningFatigue', '△')">△</button>
+                <button onclick="selectValue('morningFatigue', '×')">×</button>
+            </div>
+        </div>
+
+        <p>メモ：<input type="text" id="morningMemo"></p>
+        <button onclick="saveMorning()">✅ 記録する</button>
+        <button onclick="exportAndCopyMorning()">📤 書き出してコピー</button>
+        <pre id="exportText" style="white-space: pre-wrap; margin-top: 10px;"></pre>
+
+        <pre id="exportText" style="white-space: pre-wrap; margin-top: 10px;"></pre>
+
+    </div>
+
+
+<!-- 夜の記録 -->
+<div id="night" class="section">
+
+  <h2>🌙 夜の記録</h2>
+
+  <div class="selector">
+    <button onclick="toggleChoices('nightCondition')">体調を選ぶ</button>
+    <div id="nightCondition" class="choices">
+      <button onclick="selectValue('nightCondition', 1)">1</button>
+      <button onclick="selectValue('nightCondition', 2)">2</button>
+      <button onclick="selectValue('nightCondition', 3)">3</button>
+      <button onclick="selectValue('nightCondition', 4)">4</button>
+      <button onclick="selectValue('nightCondition', 5)">5</button>
+    </div>
+  </div>
+
+  <div class="selector">
+    <button onclick="toggleChoices('nightMental')">メンタルを選ぶ</button>
+    <div id="nightMental" class="choices">
+      <button onclick="selectValue('nightMental', 1)">1</button>
+      <button onclick="selectValue('nightMental', 2)">2</button>
+      <button onclick="selectValue('nightMental', 3)">3</button>
+      <button onclick="selectValue('nightMental', 4)">4</button>
+      <button onclick="selectValue('nightMental', 5)">5</button>
+    </div>
+  </div>
+
+  <div class="selector">
+    <button onclick="toggleChoices('nightFatigue')">疲れやすさを選ぶ</button>
+    <div id="nightFatigue" class="choices">
+      <button onclick="selectValue('nightFatigue', '◎')">◎</button>
+      <button onclick="selectValue('nightFatigue', '△')">△</button>
+      <button onclick="selectValue('nightFatigue', '×')">×</button>
+    </div>
+  </div>
+
+  <p>感情のゆらぎ・気づき：<br>
+    <textarea id="nightMemo" rows="3" cols="30"></textarea>
+  </p>
+
+  <div class="selector">
+    <button onclick="toggleChoices('nightBath')">入浴 or シャワー</button>
+    <div id="nightBath" class="choices">
+      <button onclick="selectValue('nightBath', 'シャワー')">シャワー</button>
+      <button onclick="selectValue('nightBath', '入浴')">入浴</button>
+      <button onclick="selectValue('nightBath', 'なし')">なし</button>
+    </div>
+  </div>
+
+  <button onclick="exportAndCopyNight()">📤 書き出してコピー</button>
+  <pre id="exportNightText" style="white-space: pre-wrap; margin-top: 10px;"></pre>
+</div>
+
+
+<!-- 📦 アプリのJavaScript -->
+<script src="management.js" defer></script>
+</body>
+</html>
