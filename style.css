@@ -129,4 +129,49 @@ button:active {
   background-color: #66bdda;
 }
 
+/* 🌸 スマホ向けアプリ風調整 */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 16px;
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 24px;
+    margin-top: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .section h2 {
+    font-size: 20px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .button-container button {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .section-toggle {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .choices button {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+
+  textarea {
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
 

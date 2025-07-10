@@ -1,5 +1,5 @@
 const pass = prompt("パスワードを入力してください");
-if (pass !== "yomogiabc") {
+if (pass !== "yomogi") {
   document.body.innerHTML = "<h1>アクセスできません</h1>";
 }
 
