@@ -129,6 +129,26 @@ button:active {
   background-color: #66bdda;
 }
 
+input[type="text"],
+select,
+textarea {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+
 /* 🌸 スマホ向けアプリ風調整 */
 @media screen and (max-width: 600px) {
   body {
@@ -167,11 +187,14 @@ button:active {
     padding: 10px 16px;
   }
 
+  /* 🌟 入力フィールドのスマホ最適化 */
+  select,
+  input[type="text"],
   textarea {
-    font-size: 16px;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 12px;
     width: 100%;
-    padding: 10px;
-    border-radius: 10px;
+    box-sizing: border-box;
   }
 }
-

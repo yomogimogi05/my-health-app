@@ -1,7 +1,7 @@
-const pass = prompt("パスワードを入力してください");
-if (pass !== "yomogi") {
-  document.body.innerHTML = "<h1>アクセスできません</h1>";
-}
+// const pass = prompt("パスワードを入力してください");
+// if (pass !== "yomogi") {
+//   document.body.innerHTML = "<h1>アクセスできません</h1>";
+// }
 
 function showSection(id) {
     document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
@@ -113,6 +113,39 @@ function exportAndCopyNight() {
     });
 }
 
+// 追加フォームの書き出し関数
+function exportAndCopyExtra() {
+  const date = document.getElementById('datePicker').value;
+  const conditionMemo = document.getElementById('extraConditionMemo').value || '--なし--';
+  const mentalMemo = document.getElementById('extraMentalMemo').value || '--なし--';
+  const medTime = document.getElementById('extraMedTime').value || '--なし--';
+  const extraNote = document.getElementById('extraMemo').value || '（なし）';
+
+  const text = `【追記】（${date.replace(/-/g, "/")}）
+・体調メモ：${conditionMemo}
+・メンタルメモ：${mentalMemo}
+・薬の時間：${medTime}
+・気づき：${extraNote}`;
+
+  document.getElementById('exportExtraText').textContent = text;
+
+  if (!text.trim()) {
+    alert("コピーする内容がありません！");
+    return;
+  }
+
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("📤 書き出してコピーできたよ！");
+    })
+    .catch(() => {
+      alert("コピーに失敗しちゃったみたい…😢");
+    });
+}
+
+
+
+
 
 // 日付表示
 window.onload = function () {
@@ -128,6 +161,8 @@ window.onload = function () {
 
     // 朝の記録フォームを初期表示
     showSection('morning');
+    document.getElementById('extra').classList.remove('active');
+
 
 
   // 朝：選択肢を開いておく
