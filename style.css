@@ -1,27 +1,67 @@
+/* 🌈 全体のベース設定 */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  /* 上寄せだけど中央揃え */
+  justify-content: flex-start;
   min-height: 100vh;
-  padding: 10px;
-  max-width: 600px;
+  padding: 16px;
+  max-width: 375px; /* Figmaサイズに合わせる */
   margin: 0 auto;
   font-size: 16px;
   font-family: 'Kosugi Maru', sans-serif;
-  background-color: #f0f8ff;
+  background-color: #f5f7fb;
+  box-sizing: border-box;
 }
 
+/* 🌟 タイトル（アプリっぽく） */
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #d0c7f2;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* 🗓️ 日付表示・各セクションボタン */
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.button-container button {
+  flex: 1;
+  min-width: 100px;
+  background-color: #ece4fc;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button-container button:hover {
+  background-color: #dcd1f2;
+}
+
+/* 🧩 各セクションのカード風 */
 .section {
   display: none;
   width: 100%;
-  max-width: 500px;  /* お好みで */
   margin-top: 20px;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  padding: 16px;
+  border-radius: 16px;
   background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* ふんわり感追加 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  border: 1px solid #ddd;
 }
 
 .section.active {
@@ -29,96 +69,71 @@ body {
 }
 
 .section h2 {
+  font-size: 20px;
   text-align: center;
-}
-
-.section-toggle {
-  margin: 10px 5px;
-  background-color: #fce4ec;
-  border: none;
-  border-radius: 12px;
-  padding: 8px 14px;
-  font-weight: bold;
-  font-size: 15px;
-  color: #5c4b51;
-  transition: all 0.2s;
-}
-
-.section-toggle:hover {
-  background-color: #f8bbd0;
-}
-
-
-
-
-.active {
-    display: block;
-}
-
-.selector {
-    margin: 10px 0;
-}
-
-.choices {
-    display: none;
-    margin-top: 5px;
-}
-
-/* ーーー小さいボタンーーー */
-.choices button {
-  background-color: #fff2f8;
+  margin-bottom: 12px;
   color: #444;
-  border: 1px solid #f5cce0;
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 14px;
-  margin: 4px;
+}
+
+/* 💠 セレクター領域（ラベル付き） */
+.selector {
+  margin: 14px 0;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fafafa;
+}
+
+.selector label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* 🟣 選択肢（数字や記号ボタン） */
+.choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.choices button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  background-color: #e6dfff;
+  color: #333;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .choices button:hover {
-  background-color: #ffe6f0;
+  background-color: #cbb4f3;
 }
 
 .choices button:active {
-  background-color: #fdd0e2;
+  background-color: #b89ef0;
 }
 
-/* ーーーボタンーーー */
-
-.button-container {
-  display: flex;
-  gap: 10px; /* ボタン同士のすきま */
-  justify-content: center; /* 中央寄せ */
-  margin-bottom: 20px;
-}
-
-.button-container button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #e0f7fa;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.button-container button:hover {
-  background-color: #b2ebf2;
-}
-
+/* 📝 通常ボタン（記録・コピーなど） */
 button {
-  background-color: #aedff7; /* やさしいブルー */
+  background-color: #aedff7;
   color: #333;
   border: none;
   border-radius: 10px;
   padding: 12px;
-    width: 100%; /* スマホでは全幅のほうが押しやすい */
+  width: 100%;
   font-size: 16px;
   cursor: pointer;
-    box-sizing: border-box;
+  box-sizing: border-box;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  transition: background-color 0.2s ease;
+  margin-top: 12px;
+  transition: background-color 0.2s;
 }
 
 button:hover {
@@ -129,72 +144,35 @@ button:active {
   background-color: #66bdda;
 }
 
+/* ✍️ 入力フィールド・セレクト */
 input[type="text"],
 select,
 textarea {
   font-family: 'Kosugi Maru', sans-serif;
   font-size: 16px;
   padding: 10px;
-  margin-top: 6px;
   border: 1px solid #ccc;
   border-radius: 10px;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 6px;
 }
 
-label {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: bold;
+/* 🌙 メモのテキストエリア */
+textarea {
+  resize: vertical;
 }
 
-
-/* 🌸 スマホ向けアプリ風調整 */
-@media screen and (max-width: 600px) {
-  body {
-    padding: 16px;
-    font-size: 18px;
-  }
-
-  .section {
-    padding: 24px;
-    margin-top: 24px;
-    border-radius: 16px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .section h2 {
-    font-size: 20px;
-  }
-
+/* 🎯 レスポンシブ（念のため） */
+@media screen and (max-width: 375px) {
   .button-container {
     flex-direction: column;
     gap: 12px;
   }
 
-  .button-container button {
-    font-size: 18px;
-    padding: 14px;
-  }
-
-  .section-toggle {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-
   .choices button {
-    font-size: 16px;
-    padding: 10px 16px;
-  }
-
-  /* 🌟 入力フィールドのスマホ最適化 */
-  select,
-  input[type="text"],
-  textarea {
-    font-size: 18px;
-    padding: 12px;
-    border-radius: 12px;
-    width: 100%;
-    box-sizing: border-box;
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
   }
 }
