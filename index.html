@@ -20,6 +20,7 @@
 
     <div class="button-container">
     <button onclick="showSection('morning')">☀️ 朝の記録</button>
+    <button onclick="showSection('extra')">✏️ 追記</button>
     <button onclick="showSection('night')">🌙 夜の記録</button>
     </div>
 
@@ -120,6 +121,54 @@
         <pre id="exportText" style="white-space: pre-wrap; margin-top: 10px;"></pre>
 
     </div>
+
+
+<!-- 追記セクション -->
+<div id="extra" class="section">
+  <h2>✏️ 追記</h2>
+
+  <div class="selector">
+    <label for="extraConditionMemo">体調 memo：</label>
+    <select id="extraConditionMemo">
+      <option>--なし--</option>
+      <option>だるい</option>
+      <option>頭痛</option>
+      <option>動悸</option>
+      <option>その他</option>
+    </select>
+  </div>
+
+  <div class="selector">
+    <label for="extraMentalMemo">メンタル memo：</label>
+    <select id="extraMentalMemo">
+      <option>--なし--</option>
+      <option>不安</option>
+      <option>沈む</option>
+      <option>イライラ</option>
+      <option>その他</option>
+    </select>
+  </div>
+
+  <div class="selector">
+    <label for="extraMedTime">薬服用時間：</label>
+    <select id="extraMedTime">
+      <option>--なし--</option>
+      <option value="06:00">6:00</option>
+      <option value="12:00">12:00</option>
+      <option value="18:00">18:00</option>
+      <option value="23:00">23:00</option>
+    </select>
+  </div>
+
+  <div class="selector">
+    <label for="extraMemo">気づき：</label><br>
+    <textarea id="extraMemo" rows="4" cols="30" placeholder="自由にメモを書いてね"></textarea>
+  </div>
+
+  <button onclick="exportAndCopyExtra()">📤 書き出してコピー</button>
+  <pre id="exportExtraText" style="white-space: pre-wrap; margin-top: 10px;"></pre>
+</div>
+
 
 
 <!-- 夜の記録 -->
