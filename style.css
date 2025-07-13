@@ -168,7 +168,7 @@ textarea {
 /* 🎯 レスポンシブ（念のため） */
 @media screen and (max-width: 375px) {
   .button-container {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 12px;
   }
 
