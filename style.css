@@ -28,24 +28,26 @@ h1 {
 /* 🗓️ 日付表示・各セクションボタン */
 .button-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row; /* ← これが縦並びになる原因を修正 */
+  justify-content: center;
+  flex-wrap: wrap; /* はみ出すときは自動で折り返し */
   gap: 10px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .button-container button {
-  flex: 1;
-  min-width: 100px;
-  background-color: #ece4fc;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  min-width: 90px;
+  flex: 1 0 auto; /* 自動伸縮OK */
+  max-width: 110px; /* スマホで横3つ並べやすく */
+  background-color: #f3edff;
+  border: 1px solid #d6d1f2;
+  font-weight: normal;
+  color: #333;
 }
+
 
 .button-container button:hover {
   background-color: #dcd1f2;
