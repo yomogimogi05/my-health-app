@@ -35,15 +35,22 @@ h1 {
 }
 
 .button-container button {
-  width: calc(33.3% - 6px);  /* 3等分 - gap調整 */
-  font-size: 14px;
-  padding: 8px 0;
-  border-radius: 10px;
+  width: 110px;
+  height: 43px;
+  font-size: 17px;
+  font-family: 'Inter', sans-serif;  /* ← Inter使うならこの指定も必要 */
+  border-radius: 12px;
+  padding: 0 30px;  /* 上下はheightで、左右だけ設定 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f3edff;
   border: 1px solid #d6d1f2;
   color: #333;
-  white-space: nowrap; /* 文字の折り返しを防止 */
+  white-space: nowrap;
+  box-sizing: border-box;
 }
+
 
 
 
@@ -53,16 +60,11 @@ h1 {
 
 /* 🧩 各セクションのカード風 */
 .section {
-  display: none;
-  width: 100%;
-  margin-top: 20px;
-  padding: 16px;
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
-  border: 1px solid #ddd;
+  border: none;
+  box-shadow: none;
+  background: transparent;
 }
+
 
 .section.active {
   display: block;
