@@ -16,7 +16,11 @@
 
     <h1>体調記録アプリ</h1>
 
-    <p>🗓️ 日付：<input type="date" id="datePicker"></p>
+<div class="date-input">
+  <label for="datePicker">🗓️ 日付：</label>
+  <input type="date" id="datePicker" name="date">
+</div>
+
 
     <div class="button-container">
     <button onclick="showSection('morning')">朝の記録</button>
@@ -26,13 +30,12 @@
 
     <!-- 朝 -->
     <div id="morning" class="section">
-        <h2>朝の記録</h2>
+        <!-- <h2>朝の記録</h2> -->
 
         <div class="selector">
-            <label for="wakeTime">🕰️ 起きた時間：</label>
+            <label for="wakeTime">起床時間：</label>
             <select id="wakeTime">
-                <option value="">-- 選んでね --</option>
-                <option value="06:00">6:00</option>
+                <option value="">-- 未選択 --</option>
                 <option value="06:30">6:30</option>
                 <option value="07:00">7:00</option>
                 <option value="07:30">7:30</option>
@@ -50,10 +53,9 @@
         </div>
 
         <div class="selector">
-            <label for="medTime">💊 薬を飲んだ時間：</label>
+            <label for="medTime">薬服用時間：</label>
             <select id="medTime">
-                <option value="">-- 選んでね --</option>
-                <option value="06:00">6:00</option>
+                <option value="">-- 未選択 --</option>
                 <option value="06:30">6:30</option>
                 <option value="07:00">7:00</option>
                 <option value="07:30">7:30</option>
@@ -73,7 +75,7 @@
 
 
         <div class="selector">
-            <button onclick="toggleChoices('morningWakeup')">起きた時の感覚を選ぶ</button>
+            <button onclick="toggleChoices('morningWakeup')">起きた時の感覚</button>
             <div id="morningWakeup" class="choices">
                 <button onclick="selectValue('morningWakeup', 'すっきり')">すっきり</button>
                 <button onclick="selectValue('morningWakeup', 'まあまあ')">まあまあ</button>
@@ -83,7 +85,7 @@
 
 
         <div class="selector">
-            <button onclick="toggleChoices('morningCondition')">体調を選ぶ</button>
+            <button onclick="toggleChoices('morningCondition')">体調</button>
             <div id="morningCondition" class="choices">
                 <button onclick="selectValue('morningCondition', 1)">1</button>
                 <button onclick="selectValue('morningCondition', 2)">2</button>
@@ -94,7 +96,7 @@
         </div>
 
         <div class="selector">
-            <button onclick="toggleChoices('morningMental')">メンタルを選ぶ</button>
+            <button onclick="toggleChoices('morningMental')">メンタル</button>
             <div id="morningMental" class="choices">
                 <button onclick="selectValue('morningMental', 1)">1</button>
                 <button onclick="selectValue('morningMental', 2)">2</button>
@@ -105,7 +107,7 @@
         </div>
 
         <div class="selector">
-            <button onclick="toggleChoices('morningFatigue')">疲れやすさを選ぶ</button>
+            <button onclick="toggleChoices('morningFatigue')">疲れやすさ</button>
             <div id="morningFatigue" class="choices">
                 <button onclick="selectValue('morningFatigue', '◎')">◎</button>
                 <button onclick="selectValue('morningFatigue', '△')">△</button>
